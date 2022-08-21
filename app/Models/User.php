@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'tel',
+        'avatar',
         'role',
     ];
 
@@ -44,4 +45,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Products Relationship
+     */
+    public function products(){
+        return $this->hasMany(Product::class)->orderBy('id', 'desc');
+    }
 }
